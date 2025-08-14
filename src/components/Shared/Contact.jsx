@@ -103,7 +103,7 @@ const Contact = () => (
     </div>
 
     {/* CTA Section */}
-    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 md:p-12 text-center text-white max-w-4xl mx-auto mb-12">
+    <div className="bg-gradient-to-r from-orange-600 to-indigo-700 rounded-2xl p-8 md:p-12 text-center text-white max-w-4xl mx-auto mb-12">
       <h2 className="text-4xl font-extrabold mb-4">Ready to Connect?</h2>
       <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
         Our team is here to answer your questions and help you get the most out of TrueTestify. Reach out today!

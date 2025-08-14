@@ -4,8 +4,10 @@ import PublicReviews from "../../pages/PublicReviews";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const WidgetSettings = () => {
+  const navigate = useNavigate();
   const {getInitialData} = useContext(AuthContext);
   const [widgetConfig, setWidgetConfig] = useState(getInitialData('widgetConfig', {
     layout: 'carousel',
@@ -221,6 +223,7 @@ const WidgetSettings = () => {
             <div className="w-48 h-48 flex items-center justify-center border border-dashed border-gray-300 text-gray-400 text-sm">Generating…</div>
           )}
           <button onClick={handleDownloadQr} className="px-6 py-2 bg-orange-500 text-white font-semibold hover:bg-orange-600">Download QR Code</button>
+          <button onClick={()=> navigate(`/record/${businessSlug}`)} className="px-6 py-2 bg-orange-500 text-white font-semibold hover:bg-orange-600">Leave Review</button>
         </div>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -22,7 +21,6 @@ import Footer from "./components/Shared/Footer";
 import FloatingReviewWidget from "./components/Dashboard/FloatingReviewWidget";
 import Contact from "./components/Shared/Contact";
 import NotFound from "./components/Shared/NotFound";
-import { AuthContext } from "./context/AuthContext";
 import Account from "./components/Shared/Account";
 import Navbar from "./components/Shared/Navbar";
 import Integrations from "./components/Shared/Integrations";
@@ -32,7 +30,6 @@ import PrivacyPolicy from "./components/Shared/PrivacyPolicy";
 import Blog from "./components/Shared/Blog";
 import Testimonial from "./pages/Testimonial";
 import About from "./components/Shared/About";
-import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
 import VideoReviews from "./components/Shared/Services/VideoReviews";
 import AudioReviews from "./components/Shared/Services/AudioReviews";
 import TextReviews from "./components/Shared/Services/TextReviews";
@@ -41,6 +38,10 @@ import CarouselWidget from "./components/Shared/Widgets/CarouselWidget";
 import GridWidget from "./components/Shared/Widgets/GridWidget";
 import SpotlightWidget from "./components/Shared/Widgets/SpotlightWidget";
 import WallWidget from "./components/Shared/Widgets/WallWidget";
+import GoogleTextReview from "./components/Shared/GoogleTextReview";
+import GoogleEmbed from "./components/Shared/GoogleEmbed";
+import ReviewList from "./components/Shared/ReviewList";
+
 
 function App() {
    
@@ -116,9 +117,9 @@ function App() {
             />
             
             <Route path="/login" element={<Login />} />
+            <Route path="/reviews/google-embed" element={<GoogleEmbed />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/record/:businessName" element={<RecordReview />} />
-            {/* <Route path="/record" element={<RecordReview />} /> */}
             <Route
               path="/account"
               element={
