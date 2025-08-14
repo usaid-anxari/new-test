@@ -5,7 +5,6 @@ import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import RecordReview from "./pages/RecordReview";
 import PublicReviews from "./pages/PublicReviews";
-import PublicLayout from "./components/UI/PublicLayout";
 import DashboardLayout from "./components/UI/DashboardLayout";
 import AdminSettings from "./components/Dashboard/AdminSettings";
 import Moderation from "./components/Dashboard/Moderation";
@@ -44,34 +43,8 @@ import SpotlightWidget from "./components/Shared/Widgets/SpotlightWidget";
 import WallWidget from "./components/Shared/Widgets/WallWidget";
 
 function App() {
-    const {getInitialData} = useContext(AuthContext);
-  const [widgetConfig, setWidgetConfig] = useState(getInitialData('widgetConfig', {
-    layout: 'carousel',
-    theme: 'light',
-    autoplay: true,
-    accentColor: '#ef7c00', // TrueTestify orange
-  }));
+   
 
-  const handleConfigChange = (key, value) => {
-    const newConfig = { ...widgetConfig, [key]: value };
-    localStorage.setItem('widgetConfig', JSON.stringify(newConfig));
-    setWidgetConfig(newConfig);
-    toast.success('Widget settings updated!');
-  };
-
-  const layouts = [
-    { name: 'Carousel', value: 'carousel' },
-    { name: 'Grid', value: 'grid' },
-    { name: 'Wall', value: 'wall' },
-    { name: 'Spotlight', value: 'spotlight' },
-  ];
-
-  const themes = [
-    { name: 'Light', value: 'light', icon: <SunIcon className="h-5 w-5" /> },
-    { name: 'Dark', value: 'dark', icon: <MoonIcon className="h-5 w-5" /> },
-  ];
-
-  const { user } = useContext(AuthContext);
   const location = useLocation();
   const isDashboardRoute = location.pathname.startsWith('/dashboard');
   return (
@@ -139,13 +112,13 @@ function App() {
              <Route path="/testimonial" element={<Testimonial />} />
             <Route
               path="/public-reviews/:businessName"
-              element={<PublicReviews isPreview={true} layout={widgetConfig.layout} />}
+              element={<PublicReviews />}
             />
             
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/record/:businessName" element={<RecordReview />} />
-            <Route path="/record" element={<RecordReview />} />
+            {/* <Route path="/record" element={<RecordReview />} /> */}
             <Route
               path="/account"
               element={

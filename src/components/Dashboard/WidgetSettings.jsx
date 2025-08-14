@@ -40,7 +40,7 @@ const WidgetSettings = () => {
   const shortcode = `[truetestify_widget layout="${widgetConfig.layout}" theme="${widgetConfig.theme}"]`;
 
   const publicReviewBaseUrl = typeof window !== "undefined" ? window.location.origin : "";
-  const businessSlug = user?.publicReviewUrl || "your-business";
+  const businessSlug = user?.publicReviewUrl || "your-business";  
   const publicRecordUrl = `${publicReviewBaseUrl}/record/${businessSlug}`;
 
   const [qrDataUrl, setQrDataUrl] = useState("");
