@@ -6,7 +6,9 @@ const AdminSettings = () => {
   const { getInitialData, hasFeature } = useContext(AuthContext);
   const [allowTextReviews, setAllowTextReviews] = useState(getInitialData('allowTextReviews', false));
   const [allowTextGoogleReviews, setAllowTextGoogleReviews] = useState(getInitialData('allowTextGoogleReviews', false));
-
+  console.log(hasFeature("advance"));
+  console.log(allowTextGoogleReviews);
+  
   const handleToggle = () => {
     const newSetting = !allowTextReviews;
     localStorage.setItem('allowTextReviews', JSON.stringify(newSetting));
@@ -70,6 +72,7 @@ const AdminSettings = () => {
           </p>
         </div>
         <button
+        disabled={!hasFeature("advanced_moderation")}
           onClick={handleToggleGoogleReviews}
           className={`relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 ${
             allowTextGoogleReviews ? 'bg-orange-500' : 'bg-gray-200'
